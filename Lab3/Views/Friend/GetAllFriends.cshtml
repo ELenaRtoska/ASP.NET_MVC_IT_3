@@ -1,0 +1,37 @@
+﻿@model List<Lab3.Models.FriendModel>
+
+@{
+    ViewBag.Title = "GetAllFriends";
+}
+
+<h2>All Friends</h2>
+
+<table style="padding:7px; border: 1px solid black">
+    <tr style="border: 1px solid black; padding: 7px">
+        <th style="border: 1px solid black; padding: 7px">Friend ID</th>
+        <th style="border: 1px solid black; padding: 7px">Friend Name</th>
+        <th style="border: 1px solid black; padding: 7px">Place</th>
+        <th style="border: 1px solid black; padding: 7px"></th>
+    </tr>
+    @{
+        int i = 0;
+        foreach (var friend in Model)
+        {
+            <tr style="border: 1px solid black; padding: 7px">
+                <td style="border: 1px solid black; padding: 7px">@friend.idFriend</td>
+                <td style="border: 1px solid black; padding: 7px">@friend.ime</td>
+                <td style="border: 1px solid black; padding: 7px">@friend.mestoZiveenje</td>
+                <td style="border: 1px solid black; padding: 7px">
+                    <a href="/Friend/EditFriend/@i">Edit</a>
+                    |
+                    <a href="/Friend/DeleteFriend/@i">Delete</a>
+                </td>
+            </tr>
+            i++;
+        }
+    }
+
+</table>
+
+
+<a href="/Friend/NewFriend">Add new Friend</a>
